@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="${today}"></h1>
+<h1 th:text="${'so tu nhien: ' + 5}"></h1>
+<h1 th:text="${true}"></h1>
+<h1 th:text="${'null literal: ' + null}"></h1>
+<h1 th:utext="#{kien.hello}"></h1>
+<a th:href="@{/info}"><button>Thong tin</button></a>
+<div th:with="a = ${10}">
+    <h1 th:text="${a}"></h1>
+</div>
+<div th:insert="footer::copy"></div>
+<main>
+    <section th:insert="sub::content"></section>
+</main>
+
+</body>
+</html>

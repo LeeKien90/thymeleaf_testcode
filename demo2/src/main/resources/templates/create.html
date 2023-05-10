@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="#" th:object="${createName}" th:action="@{/save}" method="post">
+
+<table>
+  <tr>
+    <td>Name</td>
+    <td>Age</td>
+    <td>Address</td>
+    <td>Sex</td>
+  </tr>
+  <tr>
+    <td>
+      <input type="text" th:field="*{name}">
+<!--      <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Invalid Name</p>-->
+      <p th:text="${errorName}"></p>
+    </td>
+    <td>
+      <input type="number" th:field="*{age}">
+<!--      <p th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Invalid Age</p>-->
+      <p th:text="${errorAge}" ></p>
+    </td>
+    <td>
+      <input type="text" th:field="*{address}">
+<!--      <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Invalid Address</p>-->
+      <p th:text="${errorAddress}"></p>
+    </td>
+    <td>
+      <input type="radio" th:field="*{sex}" value="true" th:text="Nam">
+      <input type="radio" th:field="*{sex}" value="false" th:text="Nu">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <button type="submit">Submit</button>
+    </td>
+  </tr>
+</table>
+
+</form>
+
+</body>
+</html>

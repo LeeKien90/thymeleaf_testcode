@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<section th:fragment="content">
+<table border="2px">
+    <tr>
+        <td>Stt</td>
+        <td>Name</td>
+        <td>Age</td>
+        <td>Address</td>
+        <td>Sex</td>
+    </tr>
+    <tr th:each="listAll, stt : ${output}">
+        <td th:text="${stt.index + 1}"></td>
+        <td th:text="${listAll.name}"></td>
+        <td th:text="${listAll.age}"></td>
+        <td th:text="${listAll.address}"></td>
+        <td th:switch="${listAll.sex}">
+            <span th:case="true" th:text="Nam"></span>
+            <span th:case="false" th:text="Nu"></span>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <a th:href="@{/create}"><button>Create</button></a>
+        </td>
+    </tr>
+</table>
+
+    <th:block th:each="product : ${output}">
+        <div class="product">
+            <h2 th:text="${product.name}"></h2>
+            <p th:text="${product.address}"></p>
+            <span th:text="${product.age} + ' tuổi'"></span>
+        </div>
+    </th:block>
+</section>
+</body>
+</html>
